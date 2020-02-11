@@ -18,13 +18,13 @@ public class Homework1 {
         System.out.println("Enter your number!");
         Scanner in2 = new Scanner(System.in);
         int num=in2.nextInt();
-        while (num != random_number) {
+        while (num!=random_number) {
             if (num > random_number) {
                 array1 = addNumberToArray1(array1,index1,num);
                 index1++;
                 System.out.println("Your number is too big.Please try again!");
 
-            } else if (num < random_number) {
+            } else {
                 array2 = addNumberToArray2(array2,index2,num);
                 index2++;
                 System.out.println("Your number is too small.Please try again!");
@@ -32,8 +32,8 @@ public class Homework1 {
             in2 = new Scanner(System.in);
             num=in2.nextInt();
         }
-        System.out.println("Congratulations, " + name);
-        System.out.println("There are your all entering numbers"+ Arrays.toString(array1) + "\n" + Arrays.toString(array2));
+            System.out.println("Congratulations, " + name);
+            System.out.println("There are your all entering numbers" + Arrays.toString(array1) + "\n" + Arrays.toString(array2));
 
     }
     public static int [] addNumberToArray1(int []array1, int index1, int n){
