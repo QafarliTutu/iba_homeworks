@@ -23,7 +23,7 @@ public class Homework1 {
                 array1 = addNumberToArray1(array1,index1,num);
                 index1++;
                 System.out.println("Your number is too big.Please try again!");
-                
+
             } else if (num < random_number) {
                 array2 = addNumberToArray2(array2,index2,num);
                 index2++;
@@ -61,6 +61,10 @@ public class Homework1 {
     }
 
 }
+
+
+
+
 
 
 
