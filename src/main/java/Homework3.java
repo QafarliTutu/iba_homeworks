@@ -9,32 +9,35 @@ public class Homework3 {
         String dayfinal=Inputs();
         int a =linearsearch(scedule,dayfinal);
         while (a==-1 || a==1){
-            if(a==1) {
-                for(int i=0; i<scedule[0].length; i++){
-                    if(dayfinal.equalsIgnoreCase(scedule[0][i])){
-                        System.out.println(scedule[1][i]);
+            switch (a) {
+                case(-1):
+                    System.out.println("Sorry, I don't understand you, please try again.");
+                    dayfinal = Inputs();
+                    a = linearsearch(scedule, dayfinal);
+                case (1):
+                    for (int i = 0; i < scedule[0].length; i++) {
+                        if (dayfinal.equalsIgnoreCase(scedule[0][i])) {
+                            System.out.println(scedule[1][i]);
+                            break;
+                        }
+                    }
+                    System.out.println("Please, input the day of the week:");
+                    dayfinal = Inputs();
+                    a = linearsearch(scedule, dayfinal);
+                    String exit = "exit";
+                    if (dayfinal.equals(exit)) {
                         break;
                     }
-                }
-                System.out.println("Please, input the day of the week:");
-                dayfinal=Inputs();
-                a =linearsearch(scedule,dayfinal);
-                String exit="exit";
-                if(dayfinal.equals(exit)){
-                    break;
-                }
-                if(dayfinal.startsWith("change")){
-                    String dayNamePart=dayfinal.substring(7);
-                    Modify(scedule, dayNamePart);
-                    System.out.println("Please, input the day of the week:");
-                    dayfinal=Inputs();
-                    a =linearsearch(scedule,dayfinal);
-                }
-            }
-            else {
-                System.out.println("Sorry, I don't understand you, please try again.");
-                dayfinal=Inputs();
-                a = linearsearch(scedule, dayfinal);
+                    if (dayfinal.startsWith("change")) {
+                        String dayNamePart = dayfinal.substring(7);
+                        Modify(scedule, dayNamePart);
+                        System.out.println("Please, input the day of the week:");
+                        dayfinal = Inputs();
+                        a = linearsearch(scedule, dayfinal);
+                    }
+            }String exit = "exit";
+            if (dayfinal.equals(exit)) {
+                break;
             }
 
         }
