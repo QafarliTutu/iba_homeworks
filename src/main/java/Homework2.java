@@ -1,3 +1,4 @@
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -45,7 +46,7 @@ public class Homework2 {
     public static int Inputs() {
         Scanner input = new Scanner(System.in);
         int a = input.nextInt();
-        while (a >5 || a <= 0) {
+        while (a >5 || a < 0) {
             System.out.println("Sorry. Your number is not the correct size. Try again!");
             a = input.nextInt();
         }return a;
