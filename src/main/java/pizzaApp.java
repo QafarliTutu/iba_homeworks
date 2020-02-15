@@ -2,7 +2,7 @@ import org.w3c.dom.ls.LSOutput;
 
 public class pizzaApp {
     public String name;//fields
-    private int size;
+    public int size;
     public static int count;
 
     public pizzaApp() {//konstruktor
@@ -10,13 +10,6 @@ public class pizzaApp {
 
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
 
     @Override
     public String toString() {

@@ -1,5 +1,3 @@
-import java.util.Random;
-import java.util.stream.IntStream;
 
 public class lesson4classwork {
     public static void main(String[] args) {
@@ -65,7 +63,6 @@ public class lesson4classwork {
       pizzaApp referance1=new pizzaApp();
       pizzaApp referance2=new pizzaApp();
       referance1.name="kjjjj";
-      referance1.setSize(2);
       referance2.name="jhhj";
         System.out.println(referance1);
         System.out.println(referance2);
