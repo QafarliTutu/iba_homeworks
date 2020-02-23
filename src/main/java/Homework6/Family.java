@@ -4,16 +4,84 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Family {
+    static { System.out.println("a new class is being loaded Family "); }
+    { System.out.println(" a new object is created Family"); }
+
     private Human mother;
     private Human father;
     private Human[] children;
     private Pet pet;
-    int i;
 
+    public Family() {
+    }
 
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
+    public Family(Human mother, Human father, Human[] children, Pet pet) {
+        this.mother = mother;
+        this.father = father;
+        this.children = children;
+        this.pet = pet;
+    }
+
+    public void addChilde(Human childe) {
+
+        Human[] another = new Human[children.length + 1];
+        for (int i = 0; i < children.length; i++) {
+            another[i] = children[i];
+        }
+        another[children.length] = childe;
+
+        children = another;
+    }
+
+    public boolean deleteChilde(Human childe) {
+        boolean response = false;
+
+        Human[] another = new Human[children.length - 1];
+        for (int i = 0, k = 0; i < children.length; i++) {
+
+            Human childeIndex = children[i];
+            if (childeIndex.equals(childe)) {
+                response = true;
+                continue;
+            }
+            another[k++] = children[i];
+        }
+        children = another;
+        for (int i = 0; i < children.length; i++) {
+            Human childeIndex = children[i];
+            if (childeIndex.equals(childe)) {
+                response = false;
+            }
+        }
+
+        return response;
+    }
+
+    public boolean deleteChilde(int index) {
+        boolean response = false;
+
+        Human[] another = new Human[children.length - 1];
+        Human getIndexHuman = children[index];
+
+        for (int i = 0, k = 0; i < children.length; i++) {
+            if (index == i) {
+                response = true;
+                continue;
+            }
+            another[k++] = children[i];
+        }
+        children = another;
+        for (int i = 0; i < children.length; i++) {
+            Human childeIndex = children[i];
+            if (childeIndex.equals(getIndexHuman)) {
+                response = false;
+            }
+        }
+        return response;
+    }
+
+    public int countFamily() {
+        return 2 + children.length;
     }
 
     public Human getMother() {
@@ -48,19 +116,9 @@ public class Family {
         this.pet = pet;
     }
 
-    public Family(Human mother, Human father) {
-        this.mother = mother;
-        this.father = father;
-    }
-
     @Override
     public String toString() {
-        return "Family{" +
-                "mother=" + mother +
-                ", father=" + father +
-                ", children=" + Arrays.toString(children) +
-                ", pet=" + pet +
-                '}';
+        return "Family{" + "mother=" + mother + ", father=" + father + ", children=" + Arrays.toString(children) + ", pet=" + pet + '}';
     }
 
     @Override
@@ -81,26 +139,11 @@ public class Family {
         return result;
     }
 
-    public void addChild(Human child) {
-        this.children[i] = child;
-        i++;
-
+    @Override
+    protected void finalize() {
+        System.out.println("delete Family object");
     }
 
-    public boolean deleteChild(int i) {
-        boolean flag = false;
-        for (int index = i; index <= children.length - 1; index++) {
-            children[i] = children[i + 1];
-            index--;
-            flag = true;
-        }
-        if (i < 0 || i > children.length) {
-            flag = false;
-        }
-        return flag;
-    }
-
-    public int countFamily() {
-        return this.i + 2;
-    }
 }
+
+

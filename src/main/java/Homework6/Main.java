@@ -1,27 +1,41 @@
 package Homework6;
-;
-
 public class Main {
     public static void main(String[] args) {
-        Pet pet = new Pet(Species.DOG, "Rocky", 2, 55, new String[]{"eat","drink","sleep"});
-        Human mother=new Human("Isabel", "Miller", 1971);
-        mother.setIq(85);
-        mother.setSchedule(new String[][]{{Day_of_week.MONDAY.name(),"task1"},{Day_of_week.FRIDAY.name(),"task2"}});
-        mother.setPet(pet);
-        Human father=new Human("John", "Miller", 1973);
-        father.setIq(95);
-        father.setSchedule(new String[][]{{Day_of_week.THURSDAY.name(),"task1"},{Day_of_week.SATURDAY.name(),"task2"}});
-        father.setPet(pet);
-        Human[] children=new Human[1];
-        Family family=new Family(mother,father);
-        family.setChildren(children);
-        Human child1=new Human("Alice","Miller",2013);
-        family.addChild(child1);
-        System.out.println(family);
-        for (int i = 0; i <10 ; i++) {
-             mother=father;
+            String[] habits = {"eat", "drink", "sleep"};
+            String[][] activtes = {{}, {}};
 
-        }
+            for (int i = 0; i < 1000000000; i++) {
+                Human mother = new Human("Jane ", "Karleone", 60);
+                Human father = new Human("Vito ", "Vito ", 60);
+                Human[] children = new Human[0];
+
+                Pet dog = new Pet(PetType.DOG, "Rock", 5, 75, habits);
+                Human child = new Human("Michael", "Karleone", 1977);
+
+                Family family = new Family(mother, father, children, dog);
+            }
+
+
+            Human mother = new Human("Jane ", "Karleone", 60);
+            Human father = new Human("Vito ", "Vito ", 60);
+            Human[] children = new Human[0];
+
+            Pet dog = new Pet(PetType.DOG, "Rock", 5, 75, habits);
+            Human child = new Human("Michael", "Karleone", 1977);
+
+            Family family = new Family(mother, father, children, dog);
+            family.addChilde(child);
+            Family x = family;
+            System.out.println(family);
+            family.deleteChilde(child);
+            System.out.println( family);
+            System.out.println(family.equals(x));
+            family.toString();
+
+
     }
 
 }
+
+
+

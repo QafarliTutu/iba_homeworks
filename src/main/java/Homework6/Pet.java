@@ -4,41 +4,37 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Pet {
-    private   Species species;
-    private   String nickname;
-    private   int age;
-    private   int trickLevel;
-    private   String[] habits;
+    static{ System.out.println("a new class is being loaded Pet "); }
+    { System.out.println(" a new object is created Pet"); }
 
+    private PetType species;
+    private String nickname;
+    private int age;
+    private int trickLevel;
+    private String[] habits;
 
-
-
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
-    }
-
-    public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
-        this.species=species;
-        this.nickname=nickname;
-        this.age=age;
-        this.habits=habits;
-        this.trickLevel=trickLevel;
-    }
-
-    public Pet(Species species,String nickname) {
+    public Pet(PetType species, String nickname, int age, int trickLevel, String[] habits) {
         this.species = species;
-        this.nickname=nickname;
+        this.nickname = nickname;
+        this.age = age;
+        this.trickLevel = trickLevel;
+        this.habits = habits;
     }
-    public Pet(){
 
+    public Pet(PetType species, String nickname, int age, int trickLevel) {
+        this.species = species;
+        this.nickname = nickname;
+        this.age = age;
+        this.trickLevel = trickLevel;
     }
 
-    public Species getSpecies() {
+
+
+    public PetType getSpecies() {
         return species;
     }
 
-    public void setSpecies(Species species) {
+    public void setSpecies(PetType species) {
         this.species = species;
     }
 
@@ -58,6 +54,14 @@ public class Pet {
         this.age = age;
     }
 
+    public int getTrickLevel() {
+        return trickLevel;
+    }
+
+    public void setTrickLevel(int trickLevel) {
+        this.trickLevel = trickLevel;
+    }
+
     public String[] getHabits() {
         return habits;
     }
@@ -66,44 +70,12 @@ public class Pet {
         this.habits = habits;
     }
 
-    public int getTrickLevel() {
-        return trickLevel;
-    }
-
-    public void setTrickLevel(int trickLevel) {
-        if(trickLevel>0 && trickLevel<100) {
-            this.trickLevel = trickLevel;
-        }
-    }
 
     @Override
     public String toString() {
-        return species + "{" +
-                "nickname='" + nickname + '\'' +
-                ", age=" + age +
-                ", trickLevel=" + trickLevel +
-                ", habits=" + Arrays.toString(habits) +
-                '}';
+        return "Pet{" + "species=" + species + ", nickname=" + nickname + ", age=" + age + ", trickLevel=" + trickLevel + ", habits=" + Arrays.toString(habits) + '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pet pet = (Pet) o;
-        return age == pet.age &&
-                trickLevel == pet.trickLevel &&
-                Objects.equals(species, pet.species) &&
-                Objects.equals(nickname, pet.nickname) &&
-                Arrays.equals(habits, pet.habits);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(species, nickname, age, trickLevel);
-        result = 31 * result + Arrays.hashCode(habits);
-        return result;
-    }
 
     public static void eat(){
         System.out.println("I am eating");
