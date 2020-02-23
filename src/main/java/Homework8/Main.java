@@ -1,7 +1,4 @@
 package Homework8;
-
-import Homework6.PetType;
-
 import java.util.*;
 
 public class Main {
