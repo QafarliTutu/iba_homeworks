@@ -3,7 +3,6 @@ package Homework8;
 import java.util.*;
 
 public class Family {
-
     private Human mother;
     private Human father;
     int i;
@@ -82,7 +81,7 @@ public class Family {
         return Objects.hash(mother, father, pets, i, children);
     }
 
-        public void addChild(Human child) {
+    public void addChild(Human child) {
         children.add(child);
 
     }

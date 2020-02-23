@@ -1,5 +1,7 @@
 package Homework8;
 
+import Homework6.PetType;
+
 import java.util.*;
 
 public class Pet {
@@ -105,4 +107,5 @@ public class Pet {
     public static void foul(){
         System.out.println("I need to cover it up");
     }
+
 }

@@ -106,4 +106,5 @@ public class Human {
     public int hashCode() {
         return Objects.hash(name, surname, year, iq, pet, schedule);
     }
+
 }
