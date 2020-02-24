@@ -8,7 +8,7 @@ public class Family {
     private Human father;
     private Human[] children;
     private Pet pet;
-    int i;
+    int countOfChild = 0;
 
 
     public Human getMother() {
@@ -65,8 +65,7 @@ public class Family {
         Family family = (Family) o;
         return Objects.equals(mother, family.mother) &&
                 Objects.equals(father, family.father) &&
-                Arrays.equals(children, family.children) &&
-                Objects.equals(pet, family.pet);
+                Arrays.equals(children, family.children);
     }
 
     @Override
@@ -77,26 +76,28 @@ public class Family {
     }
 
     public void addChild(Human child) {
-        this.children[i] = child;
-        i++;
+        this.children[countOfChild] = child;
+        countOfChild++;
 
     }
 
-    public boolean deleteChild(int i) {
+    public boolean deleteChild(int index) {
         boolean flag = false;
-        for (int index = i; index <= children.length - 1; index++) {
-            children[i] = children[i + 1];
-            index--;
-            flag = true;
-        }
-        if (i < 0 || i > children.length) {
+
+        if (index < 0 || index > countOfChild) {
             flag = false;
+        } else {
+            for (int j = index + 1; j <= countOfChild ; j++) {
+                children[j - 1] = children[j];
+                flag = true;
+            }
+            countOfChild--;
         }
         return flag;
     }
 
     public int countFamily() {
-        return this.i + 2;
+        return this.countOfChild + 2;
     }
 }
 

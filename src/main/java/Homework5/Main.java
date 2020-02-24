@@ -13,12 +13,19 @@ public class Main {
         father.setIq(95);
         father.setSchedule(new String[][]{{"day1,task1"},{"day2,task2"}});
         father.setPet(pet);
-        Human [] children=new Human[1];
+        Human [] children=new Human[10];
         Family family=new Family(mother,father);
         family.setChildren(children);
         Human child1=new Human("Alice","Miller",2013);
+        Human child2=new Human("Jack","Miller",2015);
         family.addChild(child1);
+        family.addChild(child2);
         System.out.println(family);
+        family.deleteChild(0);
+        System.out.println(family);
+        family.deleteChild(0);
+        System.out.println(family);
+
 
 
     }

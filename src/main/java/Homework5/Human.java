@@ -74,8 +74,6 @@ public class Human {
         this.iq = iq;
     }
 
-
-
     public String[][] getSchedule() {
         return schedule;
     }
