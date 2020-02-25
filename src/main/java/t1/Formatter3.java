@@ -1,6 +1,4 @@
-package Formatter3;
-
-import FormatterApp0.Formatter0;
+package t1;
 
 public class Formatter3 extends Formatter0 {
     @Override
