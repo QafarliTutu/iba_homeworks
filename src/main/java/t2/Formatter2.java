@@ -1,4 +1,4 @@
-package t1;
+package t2;
 
 public class Formatter2 extends Formatter0 {
     @Override

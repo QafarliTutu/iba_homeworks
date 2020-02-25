@@ -1,3 +1,5 @@
+package Newlesson;
+
 public class ArraysApp {
     public static void main1(String[] args) {
         int[] a = new int[10];

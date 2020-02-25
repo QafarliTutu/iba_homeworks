@@ -1,4 +1,4 @@
-package t1;
+package t2;
 
 
 public class FormatterApp1 {

@@ -1,3 +1,4 @@
+package Newlesson;
 
 public class lesson4classwork {
     public static void main(String[] args) {
@@ -60,13 +61,13 @@ public class lesson4classwork {
 //        return alphabetSmall().toUpperCase();
 //    }
 
-      pizzaApp referance1=new pizzaApp();
-      pizzaApp referance2=new pizzaApp();
-      referance1.name="kjjjj";
-      referance2.name="jhhj";
-        System.out.println(referance1);
-        System.out.println(referance2);
-        System.out.println(pizzaApp.count);
+//      pizzaApp referance1=new pizzaApp();
+//      pizzaApp referance2=new pizzaApp();
+//      referance1.name="kjjjj";
+//      referance2.name="jhhj";
+//        System.out.println(referance1);
+//        System.out.println(referance2);
+//        System.out.println(pizzaApp.count);
 
 
 }}
