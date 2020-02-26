@@ -2,9 +2,23 @@ package Homework6;
 
 import org.junit.jupiter.api.Test;
 
+
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FamilyTest {
+    @Test
+    public void testToString(){
+        Human[] children=new Human[3];
+        Family family=new Family();
+        family.setChildren(children);
+        Human child1=new Human("Alice","Miller",2013);
+        family.addChild(child1);
+        String expected = "Family{" + "mother=null"  + ", father=null" + ", children=" + Arrays.toString(children) + ", pet=null"  + '}';
+        assertEquals(expected, family.toString());
+
+    }
     @Test
     public void testDeleteChild(){
         Human[] children=new Human[3];
