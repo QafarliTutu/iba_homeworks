@@ -1,11 +1,8 @@
 package Homework6;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 public class Pet {
-    static{ System.out.println("a new class is being loaded Pet "); }
-    { System.out.println(" a new object is created Pet"); }
 
     private PetType species;
     private String nickname;

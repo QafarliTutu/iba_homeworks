@@ -5,8 +5,6 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Human {
-    static{ System.out.println("a new class is being loaded Human "); }
-    { System.out.println(" a new object is created Human"); }
     private String name;
     private String surname;
     private int year;

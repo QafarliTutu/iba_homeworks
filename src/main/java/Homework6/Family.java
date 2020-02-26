@@ -4,13 +4,12 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Family {
-    static { System.out.println("a new class is being loaded Family "); }
-    { System.out.println(" a new object is created Family"); }
 
     private Human mother;
     private Human father;
     private Human[] children;
     private Pet pet;
+    int countOfChild=0;
 
     public Family() {
     }
@@ -22,59 +21,35 @@ public class Family {
         this.pet = pet;
     }
 
-    public void addChilde(Human childe) {
+    public void addChild(Human child) {
+        this.children[countOfChild] = child;
+        countOfChild++;
 
-        Human[] another = new Human[children.length + 1];
-        for (int i = 0; i < children.length; i++) {
-            another[i] = children[i];
-        }
-        another[children.length] = childe;
-
-        children = another;
     }
 
-    public boolean deleteChilde(Human childe) {
-        boolean response = false;
-
-        Human[] another = new Human[children.length - 1];
-        for (int i = 0, k = 0; i < children.length; i++) {
-
-            Human childeIndex = children[i];
-            if (childeIndex.equals(childe)) {
-                response = true;
-                continue;
-            }
-            another[k++] = children[i];
-        }
-        children = another;
+    public boolean deleteChild(Human child) {
+        boolean response=false;
         for (int i = 0; i < children.length; i++) {
-            Human childeIndex = children[i];
-            if (childeIndex.equals(childe)) {
-                response = false;
+            Human childIndex = children[i];
+            if (childIndex.equals(child)) {
+                for(int j = i; j < children.length - 1; j++){
+                    children[j] = children[j+1];
+                    response=true;
+                }
+                break;
             }
-        }
-
-        return response;
+        }return response;
     }
 
-    public boolean deleteChilde(int index) {
+    public boolean deleteChild(int index) {
         boolean response = false;
-
-        Human[] another = new Human[children.length - 1];
-        Human getIndexHuman = children[index];
-
-        for (int i = 0, k = 0; i < children.length; i++) {
+        for (int i = 0; i < children.length; i++) {
             if (index == i) {
-                response = true;
-                continue;
-            }
-            another[k++] = children[i];
-        }
-        children = another;
-        for (int i = 0; i < children.length; i++) {
-            Human childeIndex = children[i];
-            if (childeIndex.equals(getIndexHuman)) {
-                response = false;
+                for(int j = i; j < children.length - 1; j++){
+                    children[j] = children[j+1];
+                    response=true;
+                }
+                break;
             }
         }
         return response;
