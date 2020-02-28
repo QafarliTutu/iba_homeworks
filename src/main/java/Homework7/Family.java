@@ -1,7 +1,5 @@
 package Homework7;
 
-import Homework5.Human;
-import Homework5.Pet;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -13,7 +11,15 @@ public class Family {
     private Human[] children;
     private Pet pet;
     int i;
+    public Family() {
+    }
 
+    public Family(Human mother, Human father, Human[] children, Pet pet) {
+        this.mother = mother;
+        this.father = father;
+        this.children = children;
+        this.pet = pet;
+    }
 
     public Human getMother() {
         return mother;
@@ -86,18 +92,34 @@ public class Family {
 
     }
 
-    public boolean deleteChild(int i) {
-        boolean flag = false;
-        for (int index = i; index <= children.length - 1; index++) {
-            children[i] = children[i + 1];
-            index--;
-            flag = true;
-        }
-        if (i < 0 || i > children.length) {
-            flag = false;
-        }
-        return flag;
+    public boolean deleteChild(Human child) {
+        boolean response=false;
+        for (int i = 0; i < children.length; i++) {
+            Human childIndex = children[i];
+            if (childIndex.equals(child)) {
+                for(int j = i; j < children.length - 1; j++){
+                    children[j] = children[j+1];
+                    response=true;
+                }
+                break;
+            }
+        }return response;
     }
+    public boolean deleteChild(int index) {
+        boolean response = false;
+        for (int i = 0; i < children.length; i++) {
+            if (index == i) {
+                for(int j = i; j < children.length - 1; j++){
+                    children[j] = children[j+1];
+                    response=true;
+                }
+                break;
+            }
+        }
+        return response;
+    }
+
+
 
     public int countFamily() {
         return this.i + 2;

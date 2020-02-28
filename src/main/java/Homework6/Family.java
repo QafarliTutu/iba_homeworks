@@ -35,8 +35,9 @@ public class Family {
                 for(int j = i; j < children.length - 1; j++){
                     children[j] = children[j+1];
                     response=true;
-                }
+                }countOfChild--;
                 break;
+
             }
         }return response;
     }
@@ -48,7 +49,7 @@ public class Family {
                 for(int j = i; j < children.length - 1; j++){
                     children[j] = children[j+1];
                     response=true;
-                }
+                }countOfChild--;
                 break;
             }
         }

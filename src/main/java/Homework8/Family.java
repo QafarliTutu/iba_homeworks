@@ -53,6 +53,8 @@ public class Family {
         this.mother = mother;
         this.father = father;
     }
+    public  Family(){
+    }
 
     @Override
     public String toString() {
@@ -88,6 +90,9 @@ public class Family {
 
     public void deleteChild(Human name) {
         children.remove(name);
+    }
+    public void deleteChild(int index) {
+       children.remove(index);
     }
 
     public int countFamily() {

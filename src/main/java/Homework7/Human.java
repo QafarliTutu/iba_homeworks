@@ -1,7 +1,5 @@
 package Homework7;
 
-import Homework6.Pet;
-
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -12,6 +10,24 @@ public class Human {
     private int iq;
     private String[][] schedule;
     private Pet pet;
+
+    public Human(String name, String surname, int year) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+    }
+
+    public Human(String name, String surname, int year, int iq, String[][] schedule) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.iq = iq;
+        this.schedule = schedule;
+    }
+
+    public Human() {
+    }
+
 
     @Override
     public boolean equals(Object o) {
