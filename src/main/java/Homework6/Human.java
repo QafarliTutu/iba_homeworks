@@ -12,6 +12,10 @@ public class Human {
     private Family family;
     private String schedule[][];
 
+    public Human() {
+    }
+
+
     public Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
@@ -25,9 +29,6 @@ public class Human {
         this.iq = iq;
         this.family = family;
         this.schedule = schedule;
-    }
-
-    public Human() {
     }
 
 
@@ -80,11 +81,6 @@ public class Human {
     }
 
     @Override
-    public String toString() {
-        return "Human{" + "name=" + name + ", surname=" + surname + ", year=" + year + ", iq=" + iq + ", schedule=" + Arrays.toString(schedule) + '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -93,8 +89,7 @@ public class Human {
                 iq == human.iq &&
                 Objects.equals(name, human.name) &&
                 Objects.equals(surname, human.surname) &&
-                Objects.equals(family, human.family) &&
-                Arrays.equals(schedule, human.schedule);
+                Objects.equals(family, human.family);
     }
 
     @Override
@@ -107,6 +102,12 @@ public class Human {
     @Override
     protected void finalize() {
         System.out.println("delete Human object");
+    }
+
+
+    @Override
+    public String toString() {
+        return "Human{" + "name=" + name + ", surname=" + surname + ", year=" + year + ", iq=" + iq + ", schedule=" + Arrays.toString(schedule) + '}';
     }
 }
 

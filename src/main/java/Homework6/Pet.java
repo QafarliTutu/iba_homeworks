@@ -10,19 +10,21 @@ public class Pet {
     private int trickLevel;
     private String[] habits;
 
-    public Pet(PetType species, String nickname, int age, int trickLevel, String[] habits) {
-        this.species = species;
-        this.nickname = nickname;
-        this.age = age;
-        this.trickLevel = trickLevel;
-        this.habits = habits;
-    }
 
     public Pet(PetType species, String nickname, int age, int trickLevel) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
+    }
+
+
+    public Pet(PetType species, String nickname, int age, int trickLevel, String[] habits) {
+        this.species = species;
+        this.nickname = nickname;
+        this.age = age;
+        this.trickLevel = trickLevel;
+        this.habits = habits;
     }
 
 
@@ -68,11 +70,6 @@ public class Pet {
     }
 
 
-    @Override
-    public String toString() {
-        return "Pet{" + "species=" + species + ", nickname=" + nickname + ", age=" + age + ", trickLevel=" + trickLevel + ", habits=" + Arrays.toString(habits) + '}';
-    }
-
 
     public static void eat(){
         System.out.println("I am eating");
@@ -82,6 +79,11 @@ public class Pet {
     }
     public static void foul(){
         System.out.println("I need to cover it up");
+    }
+
+    @Override
+    public String toString() {
+        return "Pet{" + "species=" + species + ", nickname=" + nickname + ", age=" + age + ", trickLevel=" + trickLevel + ", habits=" + Arrays.toString(habits) + '}';
     }
 
 }

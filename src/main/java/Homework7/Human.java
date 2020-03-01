@@ -11,6 +11,10 @@ public class Human {
     private String[][] schedule;
     private Pet pet;
 
+    public Human() {
+    }
+
+
     public Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
@@ -25,10 +29,6 @@ public class Human {
         this.schedule = schedule;
     }
 
-    public Human() {
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -37,9 +37,7 @@ public class Human {
         return year == human.year &&
                 iq == human.iq &&
                 Objects.equals(name, human.name) &&
-                Objects.equals(surname, human.surname) &&
-                Arrays.equals(schedule, human.schedule) &&
-                Objects.equals(pet, human.pet);
+                Objects.equals(surname, human.surname);
     }
 
     @Override
@@ -49,17 +47,6 @@ public class Human {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return "Human{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", year=" + year +
-                ", iq=" + iq +
-                ", schedule=" + Arrays.toString(schedule) +
-                ", pet=" + pet +
-                '}';
-    }
 
     public void greetPet() {
         System.out.println("Hello," + pet.getNickname());
@@ -111,5 +98,17 @@ public class Human {
 
     public void setPet(Pet pet) {
         this.pet = pet;
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", year=" + year +
+                ", iq=" + iq +
+                ", schedule=" + Arrays.toString(schedule) +
+                ", pet=" + pet +
+                '}';
     }
 }

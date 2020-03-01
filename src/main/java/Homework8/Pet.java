@@ -11,20 +11,21 @@ public class Pet {
     private   int trickLevel;
     Set<String> habits = new HashSet<>();
 
-    public Pet(String species,String nickname,int age,int trickLevel, Set habits) {
-        this.species=species;
-        this.nickname=nickname;
-        this.age=age;
-        this.habits=habits;
-        this.trickLevel=trickLevel;
+    public Pet(){
+
     }
 
     public Pet(String species,String nickname) {
         this.species = species;
         this.nickname=nickname;
     }
-    public Pet(){
 
+    public Pet(String species,String nickname,int age,int trickLevel, Set habits) {
+        this.species=species;
+        this.nickname=nickname;
+        this.age=age;
+        this.habits=habits;
+        this.trickLevel=trickLevel;
     }
 
     public String getSpecies() {
@@ -69,15 +70,16 @@ public class Pet {
         }
     }
 
-    @Override
-    public String toString() {
-        return species + "{" +
-                "nickname='" + nickname + '\'' +
-                ", age=" + age +
-                ", trickLevel=" + trickLevel +
-                ", habits=" + habits +
-                '}';
+    public static void eat(){
+        System.out.println("I am eating");
     }
+    public static void respond(String nickname){
+        System.out.println("Hello, owner.I am - "+ nickname + "." + "I miss you!" );
+    }
+    public static void foul(){
+        System.out.println("I need to cover it up");
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -98,14 +100,15 @@ public class Pet {
         return result;
     }
 
-    public static void eat(){
-        System.out.println("I am eating");
+    @Override
+    public String toString() {
+        return species + "{" +
+                "nickname='" + nickname + '\'' +
+                ", age=" + age +
+                ", trickLevel=" + trickLevel +
+                ", habits=" + habits +
+                '}';
     }
-    public static void respond(String nickname){
-        System.out.println("Hello, owner.I am - "+ nickname + "." + "I miss you!" );
-    }
-    public static void foul(){
-        System.out.println("I need to cover it up");
-    }
+
 
 }

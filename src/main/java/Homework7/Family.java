@@ -11,6 +11,7 @@ public class Family {
     private Human[] children;
     private Pet pet;
     int i;
+
     public Family() {
     }
 
@@ -58,15 +59,6 @@ public class Family {
         this.father = father;
     }
 
-    @Override
-    public String toString() {
-        return "Family{" +
-                "mother=" + mother +
-                ", father=" + father +
-                ", children=" + Arrays.toString(children) +
-                ", pet=" + pet +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -75,8 +67,7 @@ public class Family {
         Family family = (Family) o;
         return Objects.equals(mother, family.mother) &&
                 Objects.equals(father, family.father) &&
-                Arrays.equals(children, family.children) &&
-                Objects.equals(pet, family.pet);
+                Arrays.equals(children, family.children);
     }
 
     @Override
@@ -105,6 +96,7 @@ public class Family {
             }
         }return response;
     }
+
     public boolean deleteChild(int index) {
         boolean response = false;
         for (int i = 0; i < children.length; i++) {
@@ -123,5 +115,15 @@ public class Family {
 
     public int countFamily() {
         return this.i + 2;
+    }
+
+    @Override
+    public String toString() {
+        return "Family{" +
+                "mother=" + mother +
+                ", father=" + father +
+                ", children=" + Arrays.toString(children) +
+                ", pet=" + pet +
+                '}';
     }
 }

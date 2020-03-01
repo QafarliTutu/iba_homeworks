@@ -93,19 +93,13 @@ public class Family {
     }
 
     @Override
-    public String toString() {
-        return "Family{" + "mother=" + mother + ", father=" + father + ", children=" + Arrays.toString(children) + ", pet=" + pet + '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Family family = (Family) o;
         return Objects.equals(mother, family.mother) &&
                 Objects.equals(father, family.father) &&
-                Arrays.equals(children, family.children) &&
-                Objects.equals(pet, family.pet);
+                Arrays.equals(children, family.children);
     }
 
     @Override
@@ -118,6 +112,12 @@ public class Family {
     @Override
     protected void finalize() {
         System.out.println("delete Family object");
+    }
+
+
+    @Override
+    public String toString() {
+        return "Family{" + "mother=" + mother + ", father=" + father + ", children=" + Arrays.toString(children) + ", pet=" + pet + '}';
     }
 
 }

@@ -9,6 +9,14 @@ public class Family {
     List<Human> children = new ArrayList<>();
     Set<Pet> pets = new HashSet<>();
 
+    public  Family(){
+    }
+
+    public Family(Human mother, Human father) {
+        this.mother = mother;
+        this.father = father;
+    }
+
     public Human getMother() {
         return mother;
     }
@@ -49,22 +57,19 @@ public class Family {
         this.children = children;
     }
 
-    public Family(Human mother, Human father) {
-        this.mother = mother;
-        this.father = father;
+
+    public void deleteChild(Human name) {
+        children.remove(name);
     }
-    public  Family(){
+    public void deleteChild(int index) {
+        children.remove(index);
     }
 
-    @Override
-    public String toString() {
-        return "Family{" +
-                "mother=" + mother +
-                ", father=" + father +
-                ", pet=" + pets +
-                ", children=" + children +
-                '}';
+    public int countFamily() {
+        int n=children.size();
+        return n+2;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -88,16 +93,15 @@ public class Family {
 
     }
 
-    public void deleteChild(Human name) {
-        children.remove(name);
-    }
-    public void deleteChild(int index) {
-       children.remove(index);
+    @Override
+    public String toString() {
+        return "Family{" +
+                "mother=" + mother +
+                ", father=" + father +
+                ", pet=" + pets +
+                ", children=" + children +
+                '}';
     }
 
-    public int countFamily() {
-        int n=children.size();
-        return n+2;
-    }
 
 }
