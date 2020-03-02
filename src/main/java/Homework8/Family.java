@@ -21,7 +21,7 @@ public class Family {
         return mother;
     }
 
-    public void setMother(Human mother) {
+    public void setMother( Human mother) {
         this.mother = mother;
     }
 
@@ -70,6 +70,10 @@ public class Family {
         return n+2;
     }
 
+    public void addChild(Human child) {
+        children.add(child);
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -79,18 +83,12 @@ public class Family {
         return i == family.i &&
                 Objects.equals(mother, family.mother) &&
                 Objects.equals(father, family.father) &&
-                Objects.equals(pets, family.pets) &&
                 Objects.equals(children, family.children);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(mother, father, pets, i, children);
-    }
-
-    public void addChild(Human child) {
-        children.add(child);
-
     }
 
     @Override

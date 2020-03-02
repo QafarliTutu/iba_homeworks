@@ -123,7 +123,6 @@ public class Family {
                 "mother=" + mother +
                 ", father=" + father +
                 ", children=" + Arrays.toString(children) +
-                ", pet=" + pet +
                 '}';
     }
 }

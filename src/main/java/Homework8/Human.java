@@ -19,8 +19,6 @@ public class Human {
         this.year = year;
     }
 
-
-
     public Human(String name, String surname, int year, int iq, Map schedule) {
         this.name = name;
         this.surname = surname;
@@ -77,6 +75,11 @@ public class Human {
         this.schedule = schedule;
     }
 
+    public void greetPet() {
+        System.out.println("Hello," + pet.getNickname());
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -85,9 +88,7 @@ public class Human {
         return year == human.year &&
                 iq == human.iq &&
                 Objects.equals(name, human.name) &&
-                Objects.equals(surname, human.surname) &&
-                Objects.equals(pet, human.pet) &&
-                Objects.equals(schedule, human.schedule);
+                Objects.equals(surname, human.surname);
     }
 
     @Override

@@ -14,7 +14,6 @@ public class Human {
     public Human() {
     }
 
-
     public Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
@@ -27,24 +26,6 @@ public class Human {
         this.year = year;
         this.iq = iq;
         this.schedule = schedule;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Human human = (Human) o;
-        return year == human.year &&
-                iq == human.iq &&
-                Objects.equals(name, human.name) &&
-                Objects.equals(surname, human.surname);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(name, surname, year, iq, pet);
-        result = 31 * result + Arrays.hashCode(schedule);
-        return result;
     }
 
 
@@ -101,13 +82,32 @@ public class Human {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Human human = (Human) o;
+        return year == human.year &&
+                iq == human.iq &&
+                Objects.equals(name, human.name) &&
+                Objects.equals(surname, human.surname);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(name, surname, year, iq, pet);
+        result = 31 * result + Arrays.hashCode(schedule);
+        return result;
+    }
+
+
+    @Override
     public String toString() {
         return "Human{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", year=" + year +
-                ", iq=" + iq +
-                ", schedule=" + Arrays.toString(schedule) +
+//                ", iq=" + iq +
+//                ", schedule=" + Arrays.toString(schedule) +
                 ", pet=" + pet +
                 '}';
     }

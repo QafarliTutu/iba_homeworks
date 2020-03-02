@@ -6,7 +6,6 @@ public class Main {
             Human father = new Human("Vito ", "Vito ", 60);
             Human[] children = new Human[0];
             String[] habits = {"eat", "drink", "sleep"};
-            String[][] activtes = {{}, {}};
 
             Pet dog = new Pet(PetType.DOG, "Rock", 5, 75, habits);
             Human child = new Human("Michael", "Karleone", 1977);

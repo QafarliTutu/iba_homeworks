@@ -1,4 +1,5 @@
-package Homework7;
+package Homework8;
+
 
 public class Man extends Human {
     @Override

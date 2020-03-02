@@ -1,5 +1,6 @@
 package Homework7;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -7,68 +8,55 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FamilyTest {
-    @Test
-    public void testToString(){
-        Human[] children=new Human[3];
-        Family family=new Family();
-        family.setChildren(children);
-        Human child1=new Human("Alice","Miller",2013);
-        family.addChild(child1);
-        String expected = "Family{" + "mother=null"  + ", father=null" + ", children=" + Arrays.toString(children) + ", pet=null"  + '}';
-        assertEquals(expected, family.toString());
+    private Family family;
+    private Human child1 = new Human("Alice","Miller",2013);
+    private Human child2=new Human("Jack","Miller",2015);
+    private Human[] children1=new Human[3];
 
-    }
-    @Test
-    public void testDeleteChildByName(){
+    @BeforeEach
+    public void BeforeEach(){
+        this.family=new Family();
         Human[] children=new Human[3];
-        Family family=new Family();
         family.setChildren(children);
-        Human child1=new Human("Alice","Miller",2013);
-        Human child2=new Human("Jack","Miller",2015);
         family.addChild(child1);
         family.addChild(child2);
+    }
+    @Test
+    public void testDeleteChild(){
         family.deleteChild(child1);
-        Human[] children1=new Human[3];
         children1[0]=child2;
-        assertArrayEquals(children1,children);
+        assertArrayEquals(children1,family.getChildren());
     }
     @Test
     public void testDeleteChildByIndex(){
-        Homework6.Human[] children=new Homework6.Human[3];
-        Homework6.Family family=new Homework6.Family();
-        family.setChildren(children);
-        Homework6.Human child1=new Homework6.Human("Alice","Miller",2013);
-        Homework6.Human child2=new Homework6.Human("Jack","Miller",2015);
-        family.addChild(child1);
-        family.addChild(child2);
         family.deleteChild(0);
-        Homework6.Human[] children1=new Homework6.Human[3];
         children1[0]=child2;
-        assertArrayEquals(children1,children);
+        assertArrayEquals(children1,family.getChildren());
     }
     @Test
     public void testAddChild(){
-        Human[] children=new Human[3];
-        Family family=new Family();
-        family.setChildren(children);
-        Human child1=new Human("Alice","Miller",2013);
-        family.addChild(child1);
-        Human[] children1=new Human[3];
         children1[0]=child1;
-        assertArrayEquals(children1,children);
-
+        children1[1]=child2;
+        assertArrayEquals(children1,family.getChildren());
     }
     @Test
     public void testCountFamily(){
-        Human[] children=new Human[2];
-        Family family=new Family();
-        family.setChildren(children);
-        Human child1=new Human("Alice","Miller",2013);
-        Human child2=new Human("Jack","Miller",2015);
-        family.addChild(child1);
-        family.addChild(child2);
-        int a=family.countFamily();
-        assertEquals(4,a);
+        assertEquals(4,family.countFamily());
+    }
+    @Test
+    public void testToString(){
+        String expected = "Family{" + "mother=null"  + ", father=null" + ", children=" + Arrays.toString(family.getChildren()) +  '}';
+        assertEquals(expected, family.toString());
+    }
+    @Test
+    public  void testForEquals(){
+        Human woman1= new Woman();
+        woman1.setName("Isabel");
+        woman1.setSurname("Miller");
+        Human woman2= new Woman();
+        woman2.setName("Lucy");
+        woman2.setSurname("Miller");
+        assertTrue(woman1.equals(woman2));
     }
 
 }

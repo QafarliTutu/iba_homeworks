@@ -1,38 +1,34 @@
 package Homework8;
 
-import Homework6.PetType;
+
+
 
 import java.util.*;
 
 public class Pet {
-    private   String species;
+    private Species species= Species.Unknown;
     private   String nickname;
     private   int age;
     private   int trickLevel;
     Set<String> habits = new HashSet<>();
 
-    public Pet(){
 
-    }
-
-    public Pet(String species,String nickname) {
-        this.species = species;
+    public Pet(Species species,String nickname) {
         this.nickname=nickname;
     }
 
-    public Pet(String species,String nickname,int age,int trickLevel, Set habits) {
-        this.species=species;
+    public Pet(Species species, String nickname,int age,int trickLevel, Set habits) {
         this.nickname=nickname;
         this.age=age;
         this.habits=habits;
         this.trickLevel=trickLevel;
     }
 
-    public String getSpecies() {
+    public Species getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(Species species) {
         this.species = species;
     }
 

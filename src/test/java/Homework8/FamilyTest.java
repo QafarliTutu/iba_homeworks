@@ -1,5 +1,6 @@
 package Homework8;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,67 +8,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 class FamilyTest {
-    @Test
-  public void testAddChild(){
-      Human child1=new Human("Alex","Miller",2016);
-      Human child2=new Human("Martin","Miller",2019);
-      List<Human> children = new ArrayList<>();
-      children.add(child1);
-      children.add(child2);
-      int a=children.size();
-      int b=2;
-      assertEquals(b,a);
-  }
-  @Test
-  public void testDeleteChildByName(){
-      Human child1=new Human("Alex","Miller",2016);
-      Human child2=new Human("Martin","Miller",2019);
-      List<Human> children = new ArrayList<>();
-      children.add(child1);
-      children.add(child2);
-      Family family=new Family();
-      family.setChildren(children);
-      family.deleteChild(child1);
-      int a=children.size();
-      int b=1;
-      assertEquals(b,a);
+    private Family family;
+    private Human child1=new Human("Alex","Miller",2016);
+    private Human child2=new Human("Martin","Miller",2019);
+    private List<Human> children = new ArrayList<>();
 
-
-  }
-    @Test
-    public void testDeleteChildByIndex(){
-        Human child1=new Human("Alex","Miller",2016);
-        Human child2=new Human("Martin","Miller",2019);
-        List<Human> children = new ArrayList<>();
+    @BeforeEach
+    public void BeforeEach(){
+        this.family=new Family();
         children.add(child1);
         children.add(child2);
-        Family family=new Family();
         family.setChildren(children);
+    }
+
+    @Test
+    public void testAddChild(){
+      assertEquals(2, children.size());
+    }
+    @Test
+    public void testDeleteChildByName(){
+      family.deleteChild(child1);
+      assertEquals(1, children.size());
+     }
+    @Test
+    public void testDeleteChildByIndex(){
         family.deleteChild(0);
-        int a=children.size();
-        int b=1;
-        assertEquals(b,a);
+        assertEquals(1,children.size());
     }
     @Test
     public void testCountFamily(){
-        Human child1=new Human("Alex","Miller",2016);
-        Human child2=new Human("Martin","Miller",2019);
-        List<Human> children = new ArrayList<>();
-        children.add(child1);
-        children.add(child2);
-        Family family=new Family();
-        family.setChildren(children);
-        int a=family.countFamily();
-        int b=4;
-        assertEquals(b,a);
+        assertEquals(4,family.countFamily());
     }
     @Test
     public void testToString(){
-        Family family=new Family();
-        List<Human> children = new ArrayList<>();
-        Human child1=new Human("Alex","Miller",2016);
-        children.add(child1);
-        family.setChildren(children);
         String expected="Family{" +
                 "mother=null"  +
                 ", father=null" +

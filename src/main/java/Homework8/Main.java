@@ -1,4 +1,7 @@
 package Homework8;
+import Homework7.Man;
+import Homework7.Woman;
+
 import java.util.*;
 
 public class Main {
@@ -11,20 +14,24 @@ public class Main {
         Set<String> habits1 = new HashSet<String>();
         habits1.add("eating");
         habits1.add("running");
-        Pet pet= new Pet("Dog", "Lucky", 2, 67, habits1 );
+        Pet pet= new Pet(Species.Dog, "Lucky", 2, 67, habits1 );
         Set<String> habits2 = new HashSet<String>();
         habits2.add("sleeking");
         habits2.add("licking");
-        Pet pet1= new Pet("Cat","Nick",1,25,habits2);
+        Pet pet1= new Pet(Species.RoboCat,"Nick",1,25,habits2);
         Set<Pet> pets = new HashSet<>();
         pets.add(pet);
         pets.add(pet1);
         Map schedule=new HashMap();
         schedule.put("Monday","go work");
         schedule.put("Sunday","go gym");
-        Human father= new Human("John", "Miller", 1973,90,schedule);
-        Human mother=new Human("Isabel", "Miller", 1971,85, schedule);
-        Family family=new Family(mother,father);
+        Human man= new Man();
+        man.setName("Alex"); man.setSurname("Miller"); man.setYear(1972); man.setPet(pet);
+        man.greetPet(); pet.respond(pet.getNickname()); man.repairCar();
+        Human woman= new Woman();
+        woman.setName("Isabel"); woman.setSurname("Miller"); woman.setYear(1971); woman.setPet(pet1);
+        woman.greetPet(); pet1.respond(pet1.getNickname());
+        Family family=new Family();
         family.setChildren(children);
         family.setPets(pets);
         System.out.println(family);
