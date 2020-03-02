@@ -18,6 +18,7 @@ public class Pet {
     }
 
     public Pet(Species species, String nickname,int age,int trickLevel, Set habits) {
+        this.species=species;
         this.nickname=nickname;
         this.age=age;
         this.habits=habits;

@@ -20,7 +20,6 @@ class FamilyTest {
         children.add(child2);
         family.setChildren(children);
     }
-
     @Test
     public void testAddChild(){
       assertEquals(2, children.size());

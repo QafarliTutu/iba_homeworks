@@ -1,6 +1,4 @@
 package Homework8;
-import Homework7.Man;
-import Homework7.Woman;
 
 import java.util.*;
 
@@ -25,17 +23,15 @@ public class Main {
         Map schedule=new HashMap();
         schedule.put("Monday","go work");
         schedule.put("Sunday","go gym");
-        Human man= new Man();
-        man.setName("Alex"); man.setSurname("Miller"); man.setYear(1972); man.setPet(pet);
-        man.greetPet(); pet.respond(pet.getNickname()); man.repairCar();
+        Man man= new Man();
+        man.setName("Alex"); man.setSurname("Miller"); man.setYear(1972); man.setPet(pet1);man.setSchedule(schedule);
+        man.greetPet(); pet1.respond(pet1.getNickname()); man.repairCar();
         Human woman= new Woman();
-        woman.setName("Isabel"); woman.setSurname("Miller"); woman.setYear(1971); woman.setPet(pet1);
-        woman.greetPet(); pet1.respond(pet1.getNickname());
-        Family family=new Family();
+        woman.setName("Isabel"); woman.setSurname("Miller"); woman.setYear(1971); woman.setPet(pet);
+        woman.greetPet(); pet.respond(pet.getNickname());
+        Family family=new Family(man,woman);
         family.setChildren(children);
-        family.setPets(pets);
         System.out.println(family);
-
 
     }
 }
