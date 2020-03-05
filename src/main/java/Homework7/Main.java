@@ -28,6 +28,9 @@ public class Main {
         family.setFather(man);
         family.setMother(woman);
         System.out.println(family);
+        System.out.println(pet1.getNickname());
+        pet1.setNickname("Luky");
+        System.out.println(pet1.getNickname());
 
 
 

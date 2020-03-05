@@ -10,7 +10,8 @@ public abstract class Pet {
     private     int trickLevel;
     private     String[] habits;
 
-    public Pet(Species dog, String nickname, int age, int trickLevel, String[] habits) {
+    public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
+        this.species=species;
         this.nickname=nickname;
         this.age=age;
         this.habits=habits;
@@ -58,7 +59,6 @@ public abstract class Pet {
     }
 
     public Pet(){
-
     }
 
     public void eat() {
