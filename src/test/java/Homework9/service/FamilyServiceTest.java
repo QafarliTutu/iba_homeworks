@@ -1,69 +1,88 @@
 package Homework9.service;
-import Homework9.controller.FamilyController;
 import Homework9.model.Human;
-import Homework9.model.Family;
+import Homework9.model.Pet;
+import Homework9.model.Species;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.ArrayList;
-import java.util.List;
 
 class FamilyServiceTest {
-    private FamilyService familyService=new FamilyService();
+    private FamilyService familyService = new FamilyService();
 
     @Test
     public void TestOfGetAllFamilies(){
-        assertEquals(1,familyService.getAllFamilies().size());
+        assertEquals(3,familyService.getAllFamilies().size());
     }
 
     @Test
-    void displayAllFamilies() {
+    void TestOfGetFamiliesBiggerThan() {
+        assertFalse(familyService.getFamiliesBiggerThan(3).isEmpty());
     }
 
     @Test
-    void getFamiliesBiggerThan() {
+    void TestOfGetFamiliesLessThan() {
+        assertFalse(familyService.getFamiliesLessThan(3).isEmpty());
     }
 
     @Test
-    void getFamiliesLessThan() {
+    void TestOfCountFamiliesWithMemberNumber() {
+        assertFalse(familyService.countFamiliesWithMemberNumber().isEmpty());
     }
 
     @Test
-    void countFamiliesWithMemberNumber() {
+    void TestOfCreateNewFamily() {
+        Human woman = new Human();
+        Human man = new Human();
+        familyService.createNewFamily(woman,man);
+        assertEquals(4,familyService.count());
     }
 
     @Test
-    void createNewFamily() {
+    void TestOfDeleteFamilyByIndex() {
+        familyService.deleteFamilyByIndex(2);
+        assertEquals(2,familyService.count());
     }
 
     @Test
-    void deleteFamilyByIndex() {
+    void TestOfBornChild() {
+        assertTrue(familyService.getAllFamilies().contains(familyService.bornChild(familyService.getFamilyById(2),"masculine")));
     }
 
     @Test
-    void bornChild() {
+    void TestOfAdoptChild() {
+        Human child = new Human();
+        assertTrue(familyService.getAllFamilies().contains(familyService.adoptChild(familyService.getFamilyById(2),child)));
     }
 
     @Test
-    void adoptChild() {
+    void TestOfDeleteAllChildrenOlderThan() {
+        familyService.deleteAllChildrenOlderThan(18);
+        assertEquals(1,familyService.getFamilyById(0).getChildren().size());
     }
 
     @Test
-    void deleteAllChildrenOlderThan() {
+    void TestOfCount() {
+        assertEquals(3,familyService.count());
     }
 
     @Test
-    void count() {
+    void TestOfGetFamilyById() {
+        assertTrue(familyService.getAllFamilies().contains(familyService.getFamilyById(0)));
     }
 
     @Test
-    void getFamilyById() {
+    void TestOfGetPets() {
+        assertFalse(familyService.getFamilyById(2).getPets().isEmpty());
     }
 
     @Test
-    void getPets() {
-    }
+    void TestOfAddPet() {
+        Pet pet = new Pet(Species.RoboCat, "Rocky") {
+            @Override
+            public void respond(String nickname) {
 
-    @Test
-    void addPet() {
+            }
+        };
+        familyService.addPet(1,pet);
+        assertFalse(familyService.getFamilyById(1).getPets().isEmpty());
     }
 }

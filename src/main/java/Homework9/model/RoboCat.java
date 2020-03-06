@@ -1,5 +1,4 @@
-package Homework8;
-
+package Homework9.model;
 
 public class RoboCat extends Pet {
 

@@ -12,11 +12,19 @@ public class Main {
         Set<String> habits1 = new HashSet<String>();
         habits1.add("eating");
         habits1.add("running");
-        Pet pet= new Pet(Species.Dog, "Lucky", 2, 67, habits1 );
+        Pet pet= new Pet(Species.Dog, "Lucky", 2, 67, habits1) {
+            @Override
+            public void respond(String nickname) {
+            }
+        };
         Set<String> habits2 = new HashSet<String>();
         habits2.add("sleeking");
         habits2.add("licking");
-        Pet pet1= new Pet(Species.RoboCat,"Nick",1,25,habits2);
+        Pet pet1= new Pet(Species.RoboCat, "Nick", 1, 25, habits2) {
+            @Override
+            public void respond(String nickname) {
+            }
+        };
         Set<Pet> pets = new HashSet<>();
         pets.add(pet);
         pets.add(pet1);

@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Pet {
-    private   String species;
+public  abstract class Pet {
+    private   Species species;
     private   String nickname;
     private   int age;
     private   int trickLevel;
@@ -14,12 +14,12 @@ public class Pet {
     public Pet(){
     }
 
-    public Pet(String species, String nickname) {
+    public Pet(Species species, String nickname) {
         this.species = species;
         this.nickname=nickname;
     }
 
-    public Pet(String species, String nickname, int age, int trickLevel, Set habits) {
+    public Pet(Species species, String nickname, int age, int trickLevel, Set habits) {
         this.species=species;
         this.nickname=nickname;
         this.age=age;
@@ -27,12 +27,11 @@ public class Pet {
         this.trickLevel=trickLevel;
     }
 
-
-    public String getSpecies() {
+    public Species getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(Species species) {
         this.species = species;
     }
 
@@ -70,14 +69,12 @@ public class Pet {
         }
     }
 
-    @Override
-    public String toString() {
-        return species + "{" +
-                "nickname='" + nickname + '\'' +
-                ", age=" + age +
-                ", trickLevel=" + trickLevel +
-                ", habits=" + habits +
-                '}';
+    public void eat(){
+        System.out.println("I am eating");
+    }
+    public abstract void respond(String nickname);
+    public void foul(){
+        System.out.println("I need to cover it up");
     }
 
     @Override
@@ -99,14 +96,15 @@ public class Pet {
         return result;
     }
 
-    public static void eat(){
-        System.out.println("I am eating");
+    @Override
+    public String toString() {
+        return species + "{" +
+                "nickname='" + nickname + '\'' +
+                ", age=" + age +
+                ", trickLevel=" + trickLevel +
+                ", habits=" + habits +
+                '}';
     }
-    public static void respond(String nickname){
-        System.out.println("Hello, owner.I am - "+ nickname + "." + "I miss you!" );
-    }
-    public static void foul(){
-        System.out.println("I need to cover it up");
-    }
+
 
 }

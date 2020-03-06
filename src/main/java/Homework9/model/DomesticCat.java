@@ -1,6 +1,9 @@
-package Homework8;
+package Homework9.model;
 
-public class Dog extends Pet{
+
+
+public class DomesticCat extends Pet {
+
     @Override
     public void respond(String nickname) {
     }

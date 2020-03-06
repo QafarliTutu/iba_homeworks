@@ -1,19 +1,18 @@
 package Homework8;
 
-
-
-
 import java.util.*;
 
-public class Pet {
+public abstract class Pet {
     private Species species= Species.Unknown;
     private   String nickname;
     private   int age;
     private   int trickLevel;
     Set<String> habits = new HashSet<>();
 
+    public Pet(){}
 
     public Pet(Species species,String nickname) {
+        this.species=species;
         this.nickname=nickname;
     }
 
@@ -67,13 +66,11 @@ public class Pet {
         }
     }
 
-    public static void eat(){
+    public void eat(){
         System.out.println("I am eating");
     }
-    public static void respond(String nickname){
-        System.out.println("Hello, owner.I am - "+ nickname + "." + "I miss you!" );
-    }
-    public static void foul(){
+    public abstract void respond(String nickname);
+    public void foul(){
         System.out.println("I need to cover it up");
     }
 

@@ -22,7 +22,7 @@ public class FamilyController {
     }
 
     public void displayAllFamilies() {
-      familyService.getAllFamilies();
+      familyService.displayAllFamilies();
     }
 
     public void getFamiliesBiggerThan(int SpecifiedValue) {
@@ -39,6 +39,10 @@ public class FamilyController {
 
     public void createNewFamily(Human woman, Human man) {
         familyService.createNewFamily(woman, man);
+    }
+
+    public Family bornChild(Family family, String type){
+        return familyService.bornChild(family,type);
     }
 
     public void deleteFamilyByIndex(int index) {
