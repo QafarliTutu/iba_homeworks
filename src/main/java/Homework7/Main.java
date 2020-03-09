@@ -2,24 +2,20 @@ package Homework7;
 
 public class Main {
     public static void main(String[] args) {
-        Pet pet1 = new Pet(Species.Dog, "Rocky", 2, 55, new String[]{"eat", "drink", "sleep"}) {
-            @Override
-            public void respond() {
-                System.out.println("Hello owner!" );
-            }
-        };
-        Pet pet2 = new Pet(Species.DomesticCat, "Lucy", 1, 80, new String[]{"eat", "drink", "jump"}) {
-            @Override
-            public void respond() {
-                System.out.println("Hello my lowely owner!" );
-            }
-        };
+        Dog dog = new Dog();
+        dog.setNickname("Luky");
+        dog.setAge(1);
+        dog.setSpecies(Species.Dog);
+        DomesticCat cat = new DomesticCat();
+        cat.setNickname("Lucy");
+        cat.setAge(2);
+        cat.setSpecies(Species.DomesticCat);
         Man man= new Man();
-        man.setName("Alex"); man.setSurname("Miller"); man.setYear(1972); man.setPet(pet1);
-        man.greetPet(); pet1.respond(); man.repairCar();
+        man.setName("Alex"); man.setSurname("Miller"); man.setYear(1972); man.setPet(dog);
+        man.greetPet(); dog.respond(); man.repairCar();
         Human woman= new Woman();
-        woman.setName("Isabel"); woman.setSurname("Miller"); woman.setYear(1971); woman.setPet(pet2);
-        woman.greetPet(); pet2.respond();
+        woman.setName("Isabel"); woman.setSurname("Miller"); woman.setYear(1971); woman.setPet(cat);
+        woman.greetPet(); cat.respond();
         Human[] children=new Human[1];
         Family family=new Family();
         family.setChildren(children);
@@ -28,9 +24,8 @@ public class Main {
         family.setFather(man);
         family.setMother(woman);
         System.out.println(family);
-        System.out.println(pet1.getNickname());
-        pet1.setNickname("Luky");
-        System.out.println(pet1.getNickname());
+        System.out.println(dog.getNickname());
+        System.out.println(cat.getNickname());
 
 
 
