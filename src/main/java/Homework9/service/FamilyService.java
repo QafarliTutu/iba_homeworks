@@ -15,38 +15,34 @@ public class FamilyService {
     }
 
     public void displayAllFamilies() {
-        for (Family family : familyDao.getAllFamilies()) {
-            System.out.println(getAllFamilies().indexOf(family) + " " + family + "\n");
-        }
+        familyDao.getAllFamilies().stream().forEach(family -> System.out.println(getAllFamilies().indexOf(family) + " " + family + "\n"));
     }
 
     public List<Family> getFamiliesBiggerThan(int SpecifiedValue) {
         List<Family> BiggerFamilies = new ArrayList<>();
-        for (Family family : familyDao.getAllFamilies()) {
-            if (family.countFamily() > SpecifiedValue) {
+        familyDao.getAllFamilies().stream().forEach(family -> {
+            if (family.countFamily()>SpecifiedValue){
                 BiggerFamilies.add(family);
             }
-        }
+        });
         System.out.println(BiggerFamilies);
         return BiggerFamilies;
     }
 
     public List<Family> getFamiliesLessThan(int SpecifiedValue) {
         List<Family> LessFamilies = new ArrayList<>();
-        for (Family family : familyDao.getAllFamilies()) {
-            if (family.countFamily() < SpecifiedValue) {
+        familyDao.getAllFamilies().stream().forEach(family -> {
+            if (family.countFamily()<SpecifiedValue){
                 LessFamilies.add(family);
             }
-        }
+        });
         System.out.println(LessFamilies);
         return LessFamilies;
     }
 
     public List<Integer> countFamiliesWithMemberNumber() {
         List<Integer> counts = new ArrayList<>();
-        for (Family family : familyDao.getAllFamilies()) {
-            counts.add(family.countFamily());
-        }
+        familyDao.getAllFamilies().stream().forEach(family -> counts.add(family.countFamily()));
         System.out.println(counts);
         return counts;
     }
@@ -87,9 +83,7 @@ public class FamilyService {
     }
 
     public void deleteAllChildrenOlderThan(int age) {
-        for (Family family : familyDao.getAllFamilies()) {
-            family.getChildren().removeIf(child -> 2020 - child.getYear() > age);
-        }
+        familyDao.getAllFamilies().stream().forEach(family -> family.getChildren().removeIf(child -> 2020 - child.getYear() > age));
     }
 
     public int count() {
