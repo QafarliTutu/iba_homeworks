@@ -91,8 +91,9 @@ public class Human {
         this.surname = surname;
     }
 
-    public long getBirthDate() {
-        return birthDate;
+    public LocalDate getBirthDate() {
+        LocalDate bdNew = Instant.ofEpochMilli(birthDate).atZone(ZoneId.systemDefault()).toLocalDate();
+        return bdNew;
     }
 
     public void setBirthDate(String birthDate) {

@@ -50,7 +50,6 @@ public class Family {
 
     public void addChild(Human child) {
         children.add(child);
-
     }
     public void deleteChild(Human name) {
         children.remove(name);

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FamilyService {
     private FamilyDao familyDao = new CollectionFamilyDao();
@@ -21,23 +22,13 @@ public class FamilyService {
     }
 
     public List<Family> getFamiliesBiggerThan(int SpecifiedValue) {
-        List<Family> BiggerFamilies = new ArrayList<>();
-        familyDao.getAllFamilies().stream().forEach(family -> {
-            if (family.countFamily()>SpecifiedValue){
-                BiggerFamilies.add(family);
-            }
-        });
+        List<Family> BiggerFamilies = familyDao.getAllFamilies().stream().filter(family -> family.countFamily()>SpecifiedValue).collect(Collectors.toList());
         System.out.println(BiggerFamilies);
         return BiggerFamilies;
     }
 
     public List<Family> getFamiliesLessThan(int SpecifiedValue) {
-        List<Family> LessFamilies = new ArrayList<>();
-        familyDao.getAllFamilies().stream().forEach(family -> {
-            if (family.countFamily()<SpecifiedValue){
-                LessFamilies.add(family);
-            }
-        });
+        List<Family> LessFamilies = familyDao.getAllFamilies().stream().filter(family -> family.countFamily()>SpecifiedValue).collect(Collectors.toList());
         System.out.println(LessFamilies);
         return LessFamilies;
     }
@@ -85,7 +76,7 @@ public class FamilyService {
     }
 
     public void deleteAllChildrenOlderThan(int age) {
-        familyDao.getAllFamilies().stream().forEach(family -> family.getChildren().removeIf(child -> 2020 - child.getBirthDate() > age));
+        familyDao.getAllFamilies().stream().forEach(family -> family.getChildren().removeIf(child -> 2020 - child.getBirthDate().getYear() > age));
     }
 
     public int count() {
