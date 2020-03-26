@@ -44,7 +44,7 @@ public class Family  {
         this.father = father;
     }
 
-    public Set<Pet> getPets() {
+    public Set<Pet> getPet() {
         return pets;
     }
 
@@ -116,4 +116,8 @@ public class Family  {
         return Objects.hash(mother, father, children, pets);
     }
 
+    @Override
+    public String toString() {
+        return prettyFormat();
+    }
 }

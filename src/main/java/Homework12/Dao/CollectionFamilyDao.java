@@ -17,16 +17,6 @@ public class CollectionFamilyDao implements FamilyDao {
         Family family = new Family(mother, father);
         family.addChild(child1);
         family.addChild(child2);
-        Set<String> habits1 = new HashSet<String>();
-        habits1.add("eating"); habits1.add("running");
-        Pet pet1 = new Pet(Species.DomesticCat, "Lucy", 3, 64, habits1) {
-            @Override
-            public void respond(String nickname) {
-            }
-        };
-        Set<Pet> pets1 = new HashSet<>();
-        pets1.add(pet1);
-        family.setPets(pets1);
         familyList.add(family);
         Human father2 = new Human(Type.father,"Steven", "Jack","22/02/1995",84);
         Human mother2 = new Human(Type.mother,"Alice", "Jack","28/12/1998",40);
@@ -51,6 +41,7 @@ public class CollectionFamilyDao implements FamilyDao {
 
     @Override
     public Optional<Family> getFamilyById(int id) {
+
        return  familyList.stream()
                 .filter(family -> family.getId() == id)
                 .findAny();

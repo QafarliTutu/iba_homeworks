@@ -3,11 +3,9 @@ package Homework12.model;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -163,7 +161,7 @@ public class Human {
         return  type + ": {" +
                "name='" + name + '\'' +
                ", surname='" + surname + '\'' +
-               ", age=" + describeAge() +
+               ", birth date=" + describeAge() +
                ", iq=" + iq +
                ", schedule=" + schedule +
                '}';

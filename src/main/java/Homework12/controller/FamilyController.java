@@ -28,8 +28,8 @@ public class FamilyController {
         familyService.getFamiliesLessThan(SpecifiedValue).forEach(family -> System.out.println(family.prettyFormat()));
     }
 
-    public void countFamiliesWithMemberNumber() {
-        System.out.println(familyService.countFamiliesWithMemberNumber());
+    public void countAllFamiliesWithMemberNumber() {
+        System.out.println(familyService.countAllFamiliesWithMemberNumber());
     }
 
     public void createNewFamily(Human woman, Human man) {

@@ -1,12 +1,12 @@
 package Homework12;
 
-
 import Homework12.controller.FamilyController;
 import Homework12.model.*;
 import Homework12.Console.*;
+import Homework12.Console.Menu;
 
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
-
 
 public class FamilyApp {
     private FamilyController familyController = new FamilyController();
@@ -54,13 +54,12 @@ public class FamilyApp {
                                 break;
                             case "2":
                                 try {
-                                    familyController.adoptChild(familyController.getFamilyById(inputs.familyId()),
-                                            new Human(inputs.type(),inputs.name(),inputs.surname(),inputs.birthDate(),inputs.iq()));
-                                }catch (Exception ex){ System.out.println("Family doesn't exist.");
-                                }break;
-                            case "3" :
-                                flag2=false;
+                                    familyController.adoptChild(familyController.getFamilyById(inputs.familyId()),new Human(inputs.type(),inputs.name(),inputs.surname(),inputs.birthDate(),inputs.iq()));
+                                }catch (DateTimeParseException ex){ System.out.println("Invalid date format! Please enter like this 'dd/MM/yyyy'.");
+                                }catch (Exception ex){ System.out.println("Family doesn't exist."); }
                                 break;
+                            case "3" :
+                                flag2=false;break;
                             default:
                                 System.out.println("Invalid menu item! Please enter menu item: ");break;
                         }
@@ -71,21 +70,7 @@ public class FamilyApp {
                     flag1=false;break;
                 default:
                     System.out.println("Invalid menu item! Please enter menu item: ");break;
-
-
-
-
-
-
-
-
-
-
-
-
             }
-
-
         }
     }
 }

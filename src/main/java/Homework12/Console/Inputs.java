@@ -15,11 +15,6 @@ public class Inputs {
         System.out.println("Enter specified number:");
         return commoninput();
     }
-    public Type type() {
-        Type type ;
-        System.out.println("Enter child's gender:");
-        return type = Type.valueOf(scanner.next().trim().toLowerCase());
-    }
     public String birthDate() {
         String birthDate;
         System.out.println("Enter birth date:");
@@ -47,10 +42,26 @@ public class Inputs {
         System.out.println("Enter birthday:");
         return commoninput();
     }
-
     public int iq(){
         System.out.println("Enter IQ:");
         return commoninput();
+    }
+
+    public Type type() {
+        System.out.println("Enter child's gender:");
+        Type type= null;
+        boolean flag = true;
+        while(flag){
+            try {
+                type = Type.valueOf(scanner.next().trim().toLowerCase());
+                flag = false;
+            }catch (Exception ex){
+                System.out.println("Invalid gender type! Please enter 'boy' or 'girl':");
+                scanner.nextLine();
+                continue;
+            }
+        }
+        return type;
     }
 
     private int commoninput(){

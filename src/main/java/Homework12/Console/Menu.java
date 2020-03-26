@@ -1,7 +1,7 @@
 package Homework12.Console;
 
 public class Menu {
-    public void menu1() {
+    public static void menu1() {
         StringBuilder sb1 = new StringBuilder();
         sb1.append("==========================================================================================\n");
         sb1.append("|                                       MAIN MENU                                        |\n");
@@ -20,7 +20,7 @@ public class Menu {
         System.out.println(sb1);
     }
 
-    public void menu2() {
+    public static void menu2() {
         StringBuilder sb2 = new StringBuilder();
         sb2.append("===================================================\n");
         sb2.append("|                       MENU                      |\n");
