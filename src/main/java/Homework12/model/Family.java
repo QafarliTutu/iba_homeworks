@@ -13,12 +13,14 @@ public class Family  {
     Set<Pet> pets = new HashSet<>();
 
     public Family(){
+
     }
 
     public Family(Human mother, Human father) {
         this.id = ++count;
         this.mother = mother;
         this.father = father;
+
     }
 
     public Family(Human mother, Human father, List<Human> children) {
@@ -26,6 +28,7 @@ public class Family  {
         this.mother = mother;
         this.father = father;
         this.children = children;
+
     }
 
     public Human getMother() {

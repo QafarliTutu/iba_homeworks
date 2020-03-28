@@ -10,7 +10,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class FamilyService {
-    private FamilyDao familyDao = new CollectionFamilyDao();
+    private  FamilyDao familyDao = new CollectionFamilyDao();
 
     public List<Family> getAllFamilies() {
         return familyDao.getAllFamilies();
@@ -93,7 +93,7 @@ public class FamilyService {
         familyDao.getFamilyById(id).get().getPet().add(pet);
     }
 
-    public List<Family> countFamiliesByMemberNumber(int spNumber) {
+    public  List<Family> countFamiliesByMemberNumber(int spNumber) {
         List<Family> families = familyDao.getAllFamilies()
                 .stream()
                 .filter(family -> family.countFamily()==spNumber)
