@@ -5,12 +5,14 @@ import Homework12.model.Human;
 import Homework12.model.Pet;
 import Homework12.model.Type;
 import Homework12.service.FamilyService;
+import Homework12.Exceptions.FamilyOverFlowException;
 
 import java.util.List;
 import java.util.Set;
 
 public class FamilyController {
     private FamilyService familyService = new FamilyService();
+    private FamilyOverFlowException fofe = new FamilyOverFlowException();
 
     public List<Family> getAllFamilies() {
         return familyService.getAllFamilies();
@@ -41,6 +43,9 @@ public class FamilyController {
     }
 
     public Family bornChild(Family family, Type type, String name){
+        if(family.countFamily()>=4){
+            new FamilyOverFlowException();
+        }
         return familyService.bornChild(family,type,name);
     }
 
