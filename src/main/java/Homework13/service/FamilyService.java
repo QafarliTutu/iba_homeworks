@@ -16,7 +16,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import static Homework13.Dao.CollectionFamilyDao.getFamilyList;
 
-public class FamilyService {
+public class FamilyService  {
     private FamilyDao familyDao = new CollectionFamilyDao();
 
     public List<Family> getAllFamilies() throws IOException, ClassNotFoundException {
@@ -101,6 +101,7 @@ public class FamilyService {
 
     public void addPet(int id, Pet pet) throws IOException, ClassNotFoundException {
         familyDao.getFamilyById(id).get().getPet().add(pet);
+        familyDao.downloadData(getFamilyList());
     }
 
     public List<Family> countFamiliesByMemberNumber(int spNumber) throws IOException, ClassNotFoundException {
