@@ -16,7 +16,8 @@ class FamilyServiceTest {
     }
 
     @Test
-    void getAllFamiliesTest() {
+    void getAllFamiliesTest() throws IOException, ClassNotFoundException {
+        assertFalse(familyService.getAllFamilies().isEmpty());
     }
 
     @Test

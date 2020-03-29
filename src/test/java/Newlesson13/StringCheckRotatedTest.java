@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class StringCheckRotatedTest {
     private StringCheckRotated func;
 
+
     @BeforeEach
     void before() {
         this.func = new StringCheckRotated();

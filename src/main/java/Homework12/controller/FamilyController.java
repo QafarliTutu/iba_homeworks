@@ -12,7 +12,6 @@ import java.util.Set;
 
 public class FamilyController {
     private FamilyService familyService = new FamilyService();
-    private FamilyOverFlowException fofe = new FamilyOverFlowException();
 
     public List<Family> getAllFamilies() {
         return familyService.getAllFamilies();
